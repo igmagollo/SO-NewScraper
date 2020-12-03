@@ -1,5 +1,5 @@
-import { GloboNewsSraperFactory } from './globo.com/globo-news-sraper-factory.js'
+import { GloboNewsScraperFactory } from './globo.com/globo-news-scraper-factory.js'
 
 export const siteMap = {
-    'globo': GloboNewsSraperFactory,
+    'globo': GloboNewsScraperFactory,
 }

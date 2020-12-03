@@ -6,9 +6,13 @@
   "author": "Igor Magollo <igraphmagollo@gmail.com>",
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
   "dependencies": {
     "argparse": "^2.0.1",
     "got": "^11.8.0",
-    "jsdom": "^16.4.0"
+    "jsdom": "^16.4.0",
+    "rxjs": "^6.6.3"
   }
 }

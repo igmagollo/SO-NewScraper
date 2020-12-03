@@ -6,7 +6,7 @@ import { GetSecondaryNewsQuery } from "./queries/get-secondary-news-query.js"
 import { GetRelatedNewsQuery } from "./queries/get-related-news-query.js"
 
 
-export class GloboNewsSraperFactory extends AbstractNewsScraperFactory {
+export class GloboNewsScraperFactory extends AbstractNewsScraperFactory {
     static async create() {
         const url = "https://www.globo.com/"
         const domParser = await (new DOMParser(url)).parsePage()

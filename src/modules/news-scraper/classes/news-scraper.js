@@ -1,5 +1,6 @@
 import { AbstractQuery } from '../abstracts/abstract-query.js'
 import { DOMParser } from '../../dom-parser/dom-parser.js'
+import { Subject } from 'rxjs';
 
 export class NewsScraper {
 
@@ -9,6 +10,14 @@ export class NewsScraper {
     constructor(domParser) {
         this.domParser = domParser
         this.queries = []
+        this.subject = new Subject()
+    }
+
+    /**
+     * Observer design pattern
+     */
+    subscribe(observer) {
+        return this.subject.subscribe(observer)
     }
 
     /**
@@ -18,9 +27,11 @@ export class NewsScraper {
         this.queries = this.queries.concat(queries)
     }
 
-    scrape() {
-        return this.queries
-            .map(query => this.domParser.runQuery(query))
-            .reduce((a,b) => a.concat(b), [])
+    run() {
+        this.subject.next(
+            this.queries
+                .map(query => this.domParser.runQuery(query))
+                .reduce((a,b) => a.concat(b), [])
+        )
     }
 }
