@@ -22,7 +22,7 @@ export class CSV {
         fs.closeSync(fd)
     }
 
-    writeObservable(filename) {
+    writeObserver(filename) {
         return {
             next: (content) => this.writeCSV(content, filename)
         }

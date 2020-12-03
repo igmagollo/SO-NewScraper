@@ -12,7 +12,7 @@ const newsScraper = await siteScrapeFactory.create()
 const csv = new CSV(args.sep, args.output)
 
 const filename = `${args.target}-${(new Date()).toString()}.csv`
-newsScraper.subscribe(csv.writeObservable(filename))
+newsScraper.subscribe(csv.writeObserver(filename))
 
 
 newsScraper.run()
