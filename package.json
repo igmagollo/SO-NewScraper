@@ -1,0 +1,14 @@
+{
+  "name": "so-newscraper",
+  "version": "1.0.0",
+  "description": "A news scraper tool respection SO principles from SOLID",
+  "main": "src/index.js",
+  "author": "Igor Magollo <igraphmagollo@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "argparse": "^2.0.1",
+    "got": "^11.8.0",
+    "jsdom": "^16.4.0"
+  }
+}
