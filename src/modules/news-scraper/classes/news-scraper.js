@@ -1,23 +1,16 @@
 import { AbstractQuery } from '../abstracts/abstract-query.js'
 import { DOMParser } from '../../dom-parser/dom-parser.js'
-import { Subject } from 'rxjs';
+import { Observable } from '../../observer/observable.js'
 
-export class NewsScraper {
+export class NewsScraper extends Observable {
 
     /**
      * @param {DOMParser} domParser 
      */
     constructor(domParser) {
+        super()
         this.domParser = domParser
         this.queries = []
-        this.subject = new Subject()
-    }
-
-    /**
-     * Observer design pattern
-     */
-    subscribe(observer) {
-        return this.subject.subscribe(observer)
     }
 
     /**
@@ -28,7 +21,7 @@ export class NewsScraper {
     }
 
     run() {
-        this.subject.next(
+        this.submitValue(
             this.queries
                 .map(query => this.domParser.runQuery(query))
                 .reduce((a,b) => a.concat(b), [])

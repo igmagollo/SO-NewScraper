@@ -1,5 +1,7 @@
 # SO-NewScraper
 
+- Igor Raphael Magollo - 743550
+
 Um scraper de notícias respeitando os princípios SO do SOLID
 
 `Obs: Node versão 14.15.1`
@@ -28,4 +30,4 @@ Este projeto utiliza três Design Patterns para suportar extensão para novos si
 
 - **Mais sites de notícias:** em ```scr/modules/sites/``` crie a pasta do novo site, nessa pasta, crie as queries para extrair as notícias extendendo ```AbstractQuery``` (classes abstratas não existem em Js mas dessa forma fica bem legível). Na sequência crie uma Factory para encapsular a configuração do novo site (url + queries). Por ultimo, adicione no arquivo ```site-map.js``` a propriedade com o nome do seu novo site como chave carregando a nova Factory como valor (uma forma de indexação). Pronto, ao utilizar essa chave no parâmetro ```-t``` o programa será capaz de extrair notícias do novo site.
 
-- **Mais rotinas aplicadas nas notícias extraídas:** basta criar seu novo módulo com sua nova rotina, adicionar um método para gerar um ```PartialObserver``` (rxjs, basicamente um objeto com uma propriedade next, que carregará a rotina) e inscrever esse método na classe ```NewsScraper``` que fará a extração.
+- **Mais rotinas aplicadas nas notícias extraídas:** basta criar seu novo módulo com sua nova rotina, extender a classe ```Observer``` passando um getter ```PartialObserver``` em seu construtor, depois só e inscrever esse método na classe ```NewsScraper``` utilizando método ```observer```.

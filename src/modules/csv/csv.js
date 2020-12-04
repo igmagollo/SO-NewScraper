@@ -1,8 +1,12 @@
 import { News } from '../news-scraper/classes/news.js'
 import fs from 'fs'
+import { Observer } from '../observer/observer.js'
 
-export class CSV {
+export class CSV extends Observer {
     constructor(separator, output) {
+        super(
+            (filename) => {return {next: (content) => this.writeCSV(content, filename)}}
+        )
         this.separator = separator
         this.output = output
     }
@@ -20,11 +24,5 @@ export class CSV {
         fs.writeSync(fd, header.join(this.separator) + '\n')
         content.map(line => fs.writeSync(fd, Object.values(line).join(this.separator) + '\n'))
         fs.closeSync(fd)
-    }
-
-    writeObserver(filename) {
-        return {
-            next: (content) => this.writeCSV(content, filename)
-        }
     }
 }
