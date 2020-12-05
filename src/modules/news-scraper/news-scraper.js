@@ -1,6 +1,6 @@
-import { AbstractQuery } from '../abstracts/abstract-query.js'
-import { DOMParser } from '../../dom-parser/dom-parser.js'
-import { Observable } from '../../observer/observable.js'
+import { AbstractQuery } from './abstract-query.js'
+import { DOMParser } from '../dom-parser/dom-parser.js'
+import { Observable } from '../observer/observable.js'
 
 export class NewsScraper extends Observable {
 

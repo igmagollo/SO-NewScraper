@@ -1,4 +1,4 @@
-import { News } from '../classes/news.js'
+import { News } from './news.js'
 
 export class AbstractQuery {
     /**

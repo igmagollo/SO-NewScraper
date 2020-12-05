@@ -1,5 +1,5 @@
-import { AbstractQuery } from "../../../news-scraper/abstracts/abstract-query.js"
-import { News } from "../../../news-scraper/classes/news.js";
+import { AbstractQuery } from "../../../news-scraper/abstract-query.js"
+import { News } from "../../../news-scraper/news.js";
 
 export class GetRelatedNewsQuery extends AbstractQuery {
     static run(doc) {

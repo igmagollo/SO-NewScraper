@@ -1,4 +1,4 @@
-import { News } from '../news-scraper/classes/news.js'
+import { News } from '../news-scraper/news.js'
 import fs from 'fs'
 import { Observer } from '../observer/observer.js'
 

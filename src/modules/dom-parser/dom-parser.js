@@ -1,6 +1,6 @@
 import got from 'got'
 import { JSDOM } from 'jsdom'
-import { AbstractQuery } from '../news-scraper/abstracts/abstract-query.js'
+import { AbstractQuery } from '../news-scraper/abstract-query.js'
 
 /**
  * DOMParser é uma classe responsável apenas pelo parse do HTML (DOM).
